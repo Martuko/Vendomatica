@@ -6,7 +6,7 @@ Este documento explica cómo instalar y ejecutar **SmartPSS Lite** en un sistema
 
 ## Requisitos previos
 
-1. **Sistema operativo**: Linux (Debian/Ubuntu recomendado).
+1. **Sistema operativo**: Linux (Debian).
 2. **Permisos de administrador**: Necesitarás permisos de `sudo` para instalar paquetes.
 3. **Instalador de SmartPSS Lite**: Descarga el instalador desde el sitio oficial de Dahua.
 
@@ -41,12 +41,13 @@ Esto creará una carpeta llamada `smartpss-wine` en tu directorio personal.
 SmartPSS Lite requiere algunas bibliotecas de Windows para funcionar correctamente. Usa Winetricks para instalarlas:
 
 ```bash
-WINEPREFIX=~/smartpss-wine winetricks d3dx9 vcrun2019 quartz
+WINEPREFIX=~/smartpss-wine winetricks d3dx9 d3dx10 vcrun2019 quartz
 ```
 
 Esto instalará:
 
 - `d3dx9`: Bibliotecas de DirectX 9.
+- `d3dx10`: Bibliotecas de DirectX 10.
 - `vcrun2019`: Paquete de Visual C++ Redistributable 2019.
 - `quartz`: Biblioteca multimedia para la reproducción de video.
 
@@ -68,9 +69,41 @@ En la ventana que aparece:
 - Desmarca **Allow the window manager to control the windows**.
 - Reduce la resolución a 1024x768 (opcional, pero recomendado para mejorar el rendimiento).
 
+#### 4.1 Configurar con Vulkan en caso de no funcionar con OpenGL
+
+Si tu sistema tiene una GPU compatible con Vulkan (por ejemplo, NVIDIA o AMD), puedes usar DXVK para mejorar el rendimiento de SmartPSS Lite. Sigue estos pasos:
+
+```bash
+WINEPREFIX=~/smartpss-wine winetricks dxvk
+```
+
+Esto instalara:
+
+- `Vulkan`: Bibliotecas de Vulkan.
+
+Ejecuta Vulkaninfo para verificar el correcto funcionamiento de Vulkan
+
+```bash
+vulkaninfo
+```
+
+En caso de no tener instalado Vulkaninfo, Instalalo con:
+
+```bash
+sudo apt install vulkan-tools
+```
+
+Asegurate de que las bibliotecas de Directx esten sobreescritas por el DXVK, Para eso ejecuta:
+
+```bash
+WINEDLLOVERRIDES="d3d9,d3d10" wine SmartPSSLite.exe
+```
+
+Ejecuta SmartPSS
+
 ### 5. Instalar SmartPSS Lite
 
-Descarga el instalador de SmartPSS Lite desde el sitio oficial de Dahua y guárdalo en una ubicación conocida (por ejemplo, `~/Descargas`).
+Descarga el instalador de SmartPSS/Lite desde el sitio oficial de Dahua y guárdalo en una ubicación conocida (por ejemplo, `~/Descargas`).
 
 Luego, instala SmartPSS Lite en el prefijo de Wine:
 
@@ -96,8 +129,7 @@ Si prefieres crear un acceso directo en el menú de aplicaciones, puedes usar un
 
 - **Error al iniciar SmartPSS Lite**:
   - Verifica que todas las dependencias estén instaladas correctamente.
-  - Asegúrate de que el prefijo de Wine esté configurado como 32 bits (`WINEARCH=win32`).
-
+    
 - **Problemas de rendimiento**:
   - Reduce la resolución en `winecfg`.
   - Desactiva efectos gráficos avanzados.
@@ -114,23 +146,3 @@ Si prefieres crear un acceso directo en el menú de aplicaciones, puedes usar un
 
 ---
 
-## Contribuciones
-
-Si encuentras algún problema o tienes sugerencias para mejorar esta guía, por favor abre un issue en el repositorio correspondiente o contacta al equipo de soporte.
-
----
-
-¡Listo! Con esta guía, cualquier persona en la empresa podrá instalar y ejecutar SmartPSS Lite en Linux de manera sencilla. 😊
-
----
-
-### **Cómo usar este archivo**:
-
-1. Copia el contenido anterior.
-2. Pega el contenido en un archivo llamado `README.md`.
-3. Guarda el archivo en la carpeta donde esté la documentación del proyecto.
-4. Comparte el archivo con el equipo o colócalo en un repositorio para que todos puedan acceder a él.
-
----
-
-¡Y eso es todo! Este archivo está listo para ser utilizado y es fácil de seguir. 😊
