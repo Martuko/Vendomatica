@@ -20,19 +20,19 @@ Wine es una capa de compatibilidad para ejecutar aplicaciones de Windows en Linu
 
 Abre una terminal y ejecuta los siguientes comandos:
 
-'''bash
+```bash
 sudo apt update
 sudo apt install wine winetricks
-'''
+```
 ### 2. Crear un prefijo de Wine
 
 Un prefijo de Wine es un entorno aislado donde se instalarán las dependencias y la aplicación.
 
 Ejecuta el siguiente comando para crear un prefijo de Wine de 32 bits:
 
-<!--
-WINEPREFIX=~/smartpss-wine WINEARCH=win32 winecfg
--->
+```bash
+WINEPREFIX=~/smartpss-wine winecfg
+```
 
 Esto creará una carpeta llamada `smartpss-wine` en tu directorio personal.
 
@@ -40,9 +40,9 @@ Esto creará una carpeta llamada `smartpss-wine` en tu directorio personal.
 
 SmartPSS Lite requiere algunas bibliotecas de Windows para funcionar correctamente. Usa Winetricks para instalarlas:
 
-<!--
+```bash
 WINEPREFIX=~/smartpss-wine winetricks d3dx9 vcrun2019 quartz
--->
+```
 
 Esto instalará:
 
@@ -56,9 +56,9 @@ Para optimizar el rendimiento gráfico, configura Wine para usar OpenGL.
 
 Ejecuta el siguiente comando para abrir la configuración de Wine:
 
-<!--
+```bash
 WINEPREFIX=~/smartpss-wine winecfg
--->
+```
 
 En la ventana que aparece:
 
@@ -74,9 +74,9 @@ Descarga el instalador de SmartPSS Lite desde el sitio oficial de Dahua y guárd
 
 Luego, instala SmartPSS Lite en el prefijo de Wine:
 
-<!--
+```bash
 WINEPREFIX=~/smartpss-wine wine ~/Descargas/SmartPSS_Lite_Installer.exe
--->
+```
 
 Sigue las instrucciones del instalador para completar la instalación.
 
@@ -84,9 +84,9 @@ Sigue las instrucciones del instalador para completar la instalación.
 
 Una vez instalado, puedes ejecutar SmartPSS Lite desde la terminal:
 
-<!--
+```bash
 WINEPREFIX=~/smartpss-wine wine ~/smartpss-wine/drive_c/Program\ Files/SmartPSS\ Lite/SmartPSS.exe
--->
+```
 
 Si prefieres crear un acceso directo en el menú de aplicaciones, puedes usar una herramienta como **menulibre** o crear un archivo `.desktop` manualmente.
 
