@@ -6,7 +6,7 @@ Este documento explica cómo instalar y ejecutar **SmartPSS Lite** en un sistema
 
 ## Requisitos previos
 
-1. **Sistema operativo**: Linux (Debian).
+1. **Sistema operativo**: Linux (Debian). https://www.debian.org/download
 2. **Permisos de administrador**: Necesitarás permisos de `sudo` para instalar paquetes.
 3. **Instalador de SmartPSS Lite**: Descarga el instalador desde el sitio oficial de Dahua.
 
