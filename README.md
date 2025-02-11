@@ -23,8 +23,7 @@ Abre una terminal y ejecuta los siguientes comandos:
 '''bash
 sudo apt update
 sudo apt install wine winetricks
-
-
+'''
 ### 2. Crear un prefijo de Wine
 
 Un prefijo de Wine es un entorno aislado donde se instalarán las dependencias y la aplicación.
