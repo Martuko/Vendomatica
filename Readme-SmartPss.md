@@ -127,7 +127,7 @@ Si prefieres crear un acceso directo en el menú de aplicaciones, puedes usar un
 
 ## Solución de problemas
 
-- **Error al iniciar SmartPSS Lite**:
+- **Error al iniciar SmartPSS/Lite**:
   - Verifica que todas las dependencias estén instaladas correctamente.
     
 - **Problemas de rendimiento**:
