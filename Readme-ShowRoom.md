@@ -12,7 +12,7 @@ Este documento explica cómo instalar **SmartPSS/Lite** en un sistema Linux util
     ```
   - Ubicacion del Video
     ```bash
-      cd /home/showroom
+      cd /home/showroom/
       VideoVendomatica.mp4
     ```
   - Abrir Archivo de automatizacion y video
