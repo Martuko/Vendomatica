@@ -1,6 +1,6 @@
 # Instalación y ejecución de SmartPSS Lite en Linux con Wine
 
-Este documento explica cómo instalar y ejecutar **SmartPSS Lite** en un sistema Linux utilizando Wine. Sigue estos pasos para configurar el entorno y ejecutar la aplicación.
+Este documento explica cómo instalar y ejecutar **SmartPSS Lite** en un sistema Linux utilizando Wine.
 
 ---
 
