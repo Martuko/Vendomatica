@@ -4,8 +4,12 @@ Este documento explica cómo instalar **SmartPSS/Lite** en un sistema Linux util
 
 # Modificacion y ejecucion de automatizacion
 
-
-
+- ** Ubicacion del archivo **
+  ```bash
+  cd /home/showroom/
+  nano start_smartpss.sh
+  ```
+- ** Contenido del archivo **
 
 ```bash
 #!/bin/bash
