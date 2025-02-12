@@ -8,12 +8,18 @@ Este documento explica cómo instalar **SmartPSS/Lite** en un sistema Linux util
   - Ubicacion archivo de automatizacion
     ```bash
       cd /home/showroom/
-      nano start_smartpss.sh
+      start_smartpss.sh
     ```
   - Ubicacion del Video
     ```bash
       cd /home/showroom
-      VideoVendomatica.mp3
+      VideoVendomatica.mp4
+    ```
+  - Abrir Archivo de automatizacion y video
+    ```bash
+    nano /home/showroom/start_smartpss.sh
+    vim /home/showroom/start_smartpss.sh
+    cvlc /home/showroom/VideoVendomatica.mp4
     ```
 - **Contenido del archivo**
   
