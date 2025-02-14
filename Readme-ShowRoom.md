@@ -1,6 +1,6 @@
 # Instalación de SmartPSS/Lite en Linux con Wine y Ejecucion de automatizacion de Showroom
 
-Este documento explica cómo instalar **SmartPSS/Lite** en un sistema Linux utilizando Wine y la Ejecucion y modificacion de la automatizacion de Showroom
+ Este documento explica cómo instalar **SmartPSS/Lite** en un sistema Linux utilizando Wine y la Ejecucion y modificacion de la automatizacion de Showroom
 ---
 # Modificacion y ejecucion de automatizacion
 
