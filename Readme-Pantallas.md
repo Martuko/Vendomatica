@@ -168,13 +168,10 @@ xdotool mousemove X Y click 1
 
 ## 5. Ejecución del Script
 
-Guarda el archivo como `looker_automation.sh`, dale permisos de ejecución y ejecútalo:
+Guarda el archivo como `automatizacion.sh`, dale permisos de ejecución y ejecútalo:
 
 ```bash
-chmod +x looker_automation.sh
-./looker_automation.sh
+chmod +x automation.sh
+./automatizacion.sh
 ```
 
----
-
-Este README proporciona una guía completa para la instalación, personalización y uso del script de automatización de Looker Studio con Google Chrome en múltiples escritorios en Linux. 🚀
