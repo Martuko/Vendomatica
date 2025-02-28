@@ -240,3 +240,13 @@ done
 
 ---
 
+### **3.1 Cómo modificar el script para futuras actualizaciones**
+
+- **Cambiar la ubicación del programa SmartPSS**: Edita la variable `SMARTPSS_PATH` con la nueva ruta.
+- **Ajustar tiempos de espera**: Modifica los valores de `sleep` para optimizar la carga y transición.
+- **Modificar las posiciones del ratón**: Ajusta las coordenadas en `xdotool mousemove X Y click 1`.
+- **Usar un video diferente**: Cambia la variable `VIDEO_PATH` con la nueva ubicación del archivo.
+- **Alternar con más programas**: Agrega más comandos en el `while true` para automatizar otras tareas.
+
+---
+
