@@ -156,24 +156,22 @@ Si prefieres crear un acceso directo en el menú de aplicaciones, puedes usar un
 
 ```bash
 cd /home/showroom/
-start_smartpss.sh
+ls
 ```
 
-Ubicación del video:
+Para abrir el archivo de automatización:
 
 ```bash
-cd /home/showroom/
-VideoVendomatica.mp4
+nano /home/showroom/start_smartpss.sh  # Editor fácil de usar
+# O bien:
+vim /home/showroom/start_smartpss.sh  # Editor avanzado
 ```
 
-Abrir archivo de automatización y video:
+Para reproducir el video manualmente:
 
 ```bash
-nano /home/showroom/start_smartpss.sh
-vim /home/showroom/start_smartpss.sh
-cvlc /home/showroom/VideoVendomatica.mp4
+cvlc --fullscreen /home/showroom/VideoVendomatica.mp4
 ```
-
 ### **2.2 Contenido del archivo de automatización**
 
 ```bash
@@ -229,8 +227,7 @@ done
 ```
 
 ---
-
-## 3. Explicación del funcionamiento
+## 2.3 Explicación del funcionamiento
 
 1. **Ejecuta SmartPSS Lite** usando Wine.
 2. **Automatiza la interfaz gráfica** con `xdotool` para abrir la cámara en pantalla completa.
@@ -239,14 +236,106 @@ done
 5. **Se ejecuta en un bucle infinito** para mantener la automatización funcionando indefinidamente.
 
 ---
+### **2.4 Cómo modificar el script para futuras actualizaciones**
 
-### **3.1 Cómo modificar el script para futuras actualizaciones**
+#### **Cambiar la ubicación del programa SmartPSS**
+Si SmartPSS se instaló en otra carpeta, edita `start_smartpss.sh` y cambia la siguiente línea:
 
-- **Cambiar la ubicación del programa SmartPSS**: Edita la variable `SMARTPSS_PATH` con la nueva ruta.
-- **Ajustar tiempos de espera**: Modifica los valores de `sleep` para optimizar la carga y transición.
-- **Modificar las posiciones del ratón**: Ajusta las coordenadas en `xdotool mousemove X Y click 1`.
-- **Usar un video diferente**: Cambia la variable `VIDEO_PATH` con la nueva ubicación del archivo.
-- **Alternar con más programas**: Agrega más comandos en el `while true` para automatizar otras tareas.
+```bash
+SMARTPSS_PATH="$HOME/.wine/drive_c/Program Files/SmartPSSLite/SmartPSSLite.exe"
+```
+
+Si la nueva ruta es `/opt/SmartPSS/SmartPSSLite.exe`, cámbiala así:
+
+```bash
+SMARTPSS_PATH="/opt/SmartPSS/SmartPSSLite.exe"
+```
+
+#### **Ajustar tiempos de espera**
+Los tiempos de espera (`sleep X`) determinan cuántos segundos esperar entre cada acción.
+
+Por ejemplo, si SmartPSS tarda más en cargar, edita esta línea:
+
+```bash
+sleep 20  # Espera 20 segundos antes de continuar
+```
+
+Si necesitas esperar más, cámbialo a:
+
+```bash
+sleep 30  # Espera 30 segundos
+```
+
+#### **Modificar las posiciones del ratón**
+Si la interfaz cambia, ajusta las coordenadas en `xdotool`.
+
+Ejemplo actual:
+
+```bash
+xdotool mousemove 482 252 click 1  # Abre la interfaz de monitoreo
+```
+
+Para mover el clic a una nueva posición, usa esta sintaxis:
+
+```bash
+xdotool mousemove X Y click 1  # Reemplaza X e Y con nuevas coordenadas
+```
+
+Para encontrar nuevas coordenadas, usa este comando y mueve el cursor:
+
+```bash
+xdotool getmouselocation
+```
+
+#### **Usar un video diferente**
+Si necesitas cambiar el video de showroom, edita `VIDEO_PATH` en `start_smartpss.sh`:
+
+```bash
+VIDEO_PATH="/home/showroom/VideoVendomatica.mp4"
+```
+
+Si el nuevo video se llama `NuevoVideo.mp4`:
+
+```bash
+VIDEO_PATH="/home/showroom/NuevoVideo.mp4"
+```
+
+#### **Ajustar la duración de la visualización del video**
+El script alterna entre SmartPSS y el video cada 10 minutos (`sleep 600`). Para cambiarlo:
+
+- Para 5 minutos:
+  ```bash
+  sleep 300  # Espera 5 minutos
+  ```
+- Para 15 minutos:
+  ```bash
+  sleep 900  # Espera 15 minutos
+  ```
+
+#### **Alternar con más programas**
+Si necesitas ejecutar otro programa en el bucle, agrégalo antes de `wmctrl -s 0`.
+
+Ejemplo: para abrir un navegador con una URL:
+
+```bash
+firefox --new-window "https://www.tupagina.com" &
+```
+
+#### **Registro de logs para depuración**
+Si quieres registrar cada ejecución en un archivo de log, agrega esta línea:
+
+```bash
+echo "Ejecutando SmartPSS a las $(date)" >> /home/showroom/logs.txt
+```
+
+Colócala después de iniciar SmartPSS para registrar cada vez que se ejecuta:
+
+```bash
+"$WINE_EXEC" "$SMARTPSS_PATH" &
+echo "Ejecutando SmartPSS a las $(date)" >> /home/showroom/logs.txt
+```
 
 ---
+
+
 
