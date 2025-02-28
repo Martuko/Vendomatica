@@ -235,24 +235,3 @@ done
 
 ---
 
-## 4. Solución de problemas
-
-- **Error al iniciar SmartPSS/Lite**:
-  - Verifica que todas las dependencias estén instaladas correctamente.
-- **Problemas de rendimiento**:
-  - Reduce la resolución en `winecfg`.
-  - Desactiva efectos gráficos avanzados.
-- **Errores relacionados con DirectX**:
-  - Asegúrate de que las bibliotecas `d3dx9` y `quartz` estén instaladas.
-
----
-
-## 5. Mejoras futuras
-
-✅ **Parámetros configurables**: Permitir definir rutas y tiempos de espera como variables.  
-✅ **Manejo de errores**: Reiniciar SmartPSS o VLC automáticamente en caso de falla.  
-✅ **Registros de ejecución**: Agregar logs (`echo` a un archivo) para monitorear la automatización.  
-
----
-
-Este README proporciona una guía completa para la instalación y automatización de SmartPSS Lite en Linux. ¡Si necesitas modificar algo o agregar más detalles, házmelo saber! 🚀
