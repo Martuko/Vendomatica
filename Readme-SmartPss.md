@@ -21,6 +21,7 @@ Wine es una capa de compatibilidad para ejecutar aplicaciones de Windows en Linu
 Abre una terminal y ejecuta los siguientes comandos:
 
 ```bash
+sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt install wine winetricks
 ```
