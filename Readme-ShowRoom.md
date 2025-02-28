@@ -182,9 +182,9 @@ cvlc /home/showroom/VideoVendomatica.mp4
 WINE_EXEC="/usr/bin/wine"  # Ruta al binario de Wine
 SMARTPSS_PATH="$HOME/.wine/drive_c/Program Files/SmartPSSLite/SmartPSSLite.exe"
 
-"$WINE_EXEC" "$SMARTPSS_PATH" &
+"$WINE_EXEC" "$SMARTPSS_PATH" &  # Inicia SmartPSS Lite
 
-sleep 20 # Espera de carga del Programa
+sleep 20 # Espera para la carga del programa
 
 WINDOW_ID=$(xdotool search --name "SmartPSS" | head -n 1)
 xdotool windowactivate "$WINDOW_ID"
@@ -192,33 +192,38 @@ sleep 1
 xdotool windowfocus "$WINDOW_ID"
 sleep 1
 
+# Abre la interfaz de monitoreo
 xdotool mousemove 482 252 click 1
-sleep 20  # Tiempo para cargar la interfaz de monitoreo
+sleep 20  # Espera para cargar la interfaz
 
+# Selecciona la cámara
 xdotool mousemove 456 304 click 1
 xdotool click 1
-sleep 15  # Tiempo para cargar la cámara
+sleep 15  # Espera para la carga de la cámara
 
+# Cambia a pantalla completa (doble clic en la cámara seleccionada)
 xdotool mousemove 660 327 click 1
 xdotool click 1
 sleep 10
 
+# Confirma que la ventana esté activa antes del último clic
 xdotool windowfocus "$WINDOW_ID"
 sleep 1  
 xdotool mousemove 1552 913 click 1
-sleep 300
+sleep 300  # Mantiene la vista por 5 minutos
 
+# Inicia el loop que alterna entre SmartPSS y el video promocional
 VIDEO_PATH="/home/showroom/VideoVendomatica.mp4"
 
 while true; do
-    wmctrl -s 1  # Cambiar al escritorio 2
+    wmctrl -s 1  # Cambia al escritorio 2
     sleep 2  
-    cvlc --fullscreen --loop "$VIDEO_PATH" &  # VLC en loop
+    cvlc --fullscreen --loop "$VIDEO_PATH" &  # Ejecuta VLC en loop
     sleep 600  # Espera 10 minutos
-    wmctrl -s 0  # Cambiar al escritorio 1
+    wmctrl -s 0  # Cambia de vuelta al escritorio 1
     xdotool mousemove 150 150 
-    pkill vlc
-    sleep 600 # Espera 10 minutos antes de repetir
+    pkill vlc  # Cierra VLC antes de repetir el ciclo
+    sleep 600 # Espera antes de volver a mostrar SmartPSS
 
 done
 ```
