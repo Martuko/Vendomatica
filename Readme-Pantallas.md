@@ -175,5 +175,3 @@ Y añade la siguiente línea al final:
 ```
 
 ---
-
-Este README proporciona una guía completa para la instalación y automatización del cambio de pantallas en Linux. ¡Si necesitas modificar algo o agregar más detalles, házmelo saber! 🚀
